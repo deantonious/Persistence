@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void EndGame() {
+		if (Information.BestScore < Information.Score)
+			Information.BestScore = Information.Score;
 		SceneManager.LoadScene("GameOver");
 		
 	}

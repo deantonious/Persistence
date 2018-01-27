@@ -6,6 +6,7 @@ using System.Text;
 namespace Assets.Scripts {
 
 	public static class Information {
+		public static int BestScore { get; set; }
 		public static int Score { get; set; }
 		public static float ScrollSpeed { get; set; }
 	}

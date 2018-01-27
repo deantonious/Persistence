@@ -10,11 +10,12 @@ public class GameOverScreen : MonoBehaviour {
 	public Text ScoreLabel;
 	
 	void Start () {
-		ScoreLabel.text = "Score\n\n" + Information.Score;
+		ScoreLabel.text = "Best Score\n\n"+Information.BestScore+"\n\nScore\n\n" + Information.Score;
 	}
 
 	void Update() {
 		if (Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space)) {
+			Information.Score = 0;
 			SceneManager.LoadScene("Intro");
 		}
 	}
