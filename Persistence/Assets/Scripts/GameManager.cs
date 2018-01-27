@@ -8,32 +8,32 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject rightBorder;
 	public GameObject leftBorder;
-	public Light mainLight;
-	public int Score;
+
+	public int LimitsAtZ = 5;
+	public int PlayerZ = 5;
+	public AudioClip DeathSound;
 
 	void Start () {
-
 		InvokeRepeating("AddScore", 1, 1);
-		ChangeLightColor(new Color(Random.Range(0, 255), 103, 178));
 	}
 	
 	void Update () {
 		Vector3 camScreen = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 1));
-		leftBorder.transform.position = new Vector3(-camScreen.x, leftBorder.transform.position.y, 5);
-		rightBorder.transform.position = new Vector3(camScreen.x, leftBorder.transform.position.y, 5);
+		leftBorder.transform.position = new Vector3(-camScreen.x, leftBorder.transform.position.y, LimitsAtZ);
+		rightBorder.transform.position = new Vector3(camScreen.x, leftBorder.transform.position.y, LimitsAtZ);
 
-	}
-
-	public void ChangeLightColor(Color color) {
-		mainLight.color = color;
+		if(Information.Score > 1) {
+			Information.ScrollSpeed = Mathf.Log(Information.Score);
+		}
+		
 	}
 
 	private void AddScore() {
-		Score++;
+		Information.Score++;
 	}
 
 	public void EndGame() {
-		Information.Score = Score;
 		SceneManager.LoadScene("GameOver");
+		
 	}
 }

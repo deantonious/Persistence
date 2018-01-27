@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour {
 
 	public Text ScoreLabel;
 	
 	void Start () {
-		ScoreLabel.text = "Score: " + Information.Score;
+		ScoreLabel.text = "Score\n\n" + Information.Score;
 	}
-	
-	void Update () {
-		
+
+	void Update() {
+		if (Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Space)) {
+			SceneManager.LoadScene("Intro");
+		}
 	}
 }
