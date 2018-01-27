@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Persistance.unity
+    guid: a6089fb4cb2b98f419a3b4b160bfc788
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: b45b3da4ab68b6940b55cdaee79258ae
