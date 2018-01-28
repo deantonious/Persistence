@@ -31,11 +31,4 @@ public class GameManager : MonoBehaviour {
 	private void AddScore() {
 		Information.Score++;
 	}
-
-	public void EndGame() {
-		if (Information.BestScore < Information.Score)
-			Information.BestScore = Information.Score;
-		SceneManager.LoadScene("GameOver");
-		
-	}
 }

@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour {
 			isgrounded = true;
 		}
 		if (coll.gameObject.tag == "Player" && !isDead) {
-			isDead = false;
+			isDead = true;
 			xAxis = 0;
 			AudioSource audio = gameObject.GetComponent<AudioSource>();
 			audio.Play();

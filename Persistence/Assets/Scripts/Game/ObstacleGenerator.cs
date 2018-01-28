@@ -6,12 +6,12 @@ public class ObstacleGenerator : MonoBehaviour {
 	public GameObject[] obsPrefabs;
 	public GameObject[] rareObsPrefabs;
 
-	public int SpawnRate;
+	public float SpawnDelay;
 
 	public int SpanwAtZ = 5;
 
 	void Start () {
-		InvokeRepeating("SpawnObstacle", SpawnRate, SpawnRate);
+		InvokeRepeating("SpawnObstacle", SpawnDelay, SpawnDelay);
 	}
 
 	private void SpawnObstacle() {
@@ -19,12 +19,12 @@ public class ObstacleGenerator : MonoBehaviour {
 		Vector3 spawn = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Screen.height, 1));
 		spawn.z = SpanwAtZ;
 
-		if (Random.Range(0, 100) < 85) {
-			spawn = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width/2), Screen.height + Random.Range(100, 300), 1));
+		if (Random.Range(0, 100) < 75) {
+			spawn = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(20, Screen.width/2), Screen.height + Random.Range(0, 150), 1));
 			spawn.z = SpanwAtZ;
 			GameObject obs0 = Instantiate(obsPrefabs[Random.Range(0, obsPrefabs.Length)], spawn, Quaternion.identity) as GameObject;
 
-			spawn = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(Screen.width/2, Screen.width), Screen.height + Random.Range(100, 300), 1));
+			spawn = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(Screen.width/2, Screen.width-20), Screen.height + Random.Range(0, 150), 1));
 			spawn.z = SpanwAtZ;
 			GameObject obs1 = Instantiate(obsPrefabs[Random.Range(0, obsPrefabs.Length)], spawn, Quaternion.identity) as GameObject;
 		} else {
