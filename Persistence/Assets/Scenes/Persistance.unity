@@ -245,7 +245,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -797,6 +797,7 @@ MonoBehaviour:
   LimitsAtZ: 5
   PlayerZ: 5
   DeathSound: {fileID: 8300000, guid: d9f538cbf54c071418a76942d746b75d, type: 3}
+  TimeToAddScore: 2
 --- !u!4 &2144668103
 Transform:
   m_ObjectHideFlags: 0
@@ -834,7 +835,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9f538cbf54c071418a76942d746b75d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0

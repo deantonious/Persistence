@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 728387357}
   - component: {fileID: 728387359}
   m_Layer: 0
-  m_Name: suelo
+  m_Name: Floor
   m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -535,7 +535,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9f538cbf54c071418a76942d746b75d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 1444575768}
   - component: {fileID: 1444575767}
   m_Layer: 0
-  m_Name: jaula
+  m_Name: Jail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 1470317835}
   - component: {fileID: 1470317834}
   m_Layer: 0
-  m_Name: Fondo
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,4 +1,4 @@
-WindowsStandalone
+WebGL
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Intro.unity
@@ -152,4 +152,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BlinkText
 30387f7bb5262b7ec7a7beee9407e47e Assembly-CSharp.dll:.ScrollingBackground
 7d9289b44c13f7d89327573e26d11a1b Assembly-CSharp.dll:.EnemyController
-e96b1993c8c5c566f688a8532ae1868b Assembly-CSharp.dll:.GameManager
+89b0b53adf22ba43691da0ef86641aca Assembly-CSharp.dll:.GameManager
