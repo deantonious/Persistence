@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		InvokeRepeating("AddScore", TimeToAddScore, TimeToAddScore);
 		Information.ScrollSpeed = 2;
-		InvokeRepeating("UpdateSpeed", 20, 20);
+		InvokeRepeating("UpdateSpeed", 10, 10);
 	}
 	
 	void Update () {
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void UpdateSpeed() {
-		if(Information.ScrollSpeed < 7)
-			Information.ScrollSpeed += 0.1f;
+		if(Information.ScrollSpeed < 8)
+			Information.ScrollSpeed += 0.20f;
 	}
 }

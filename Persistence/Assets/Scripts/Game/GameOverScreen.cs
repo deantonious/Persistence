@@ -14,7 +14,7 @@ public class GameOverScreen : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.anyKey) {
+		if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Return)) {
 			Information.Score = 0;
 			SceneManager.LoadScene("Intro");
 		}

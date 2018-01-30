@@ -327,7 +327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreUp: {fileID: 1277354791292230, guid: a1977bbfa7ae7004889e0003fbc314c5, type: 2}
   Speed: 6.13
-  SquareSpeed: 10
+  RegresionSpeed: 0.27
+  SquareSpeed: 12
+  Delay: 13
+  Movimiento: 0.18
   Mode: 2
   Songs:
   - {fileID: 8300000, guid: f69127bf55c78064b94b81d3a086b7b8, type: 3}
@@ -335,10 +338,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7f930cab15dc9a94c9a29955cb107397, type: 3}
   Transition: {fileID: 8300000, guid: df2d23d624798384d883ff2311debe63, type: 3}
   DeathSound: {fileID: 8300000, guid: 00e3504c5900df343be13d5dd6a84f2d, type: 3}
-  mainLight: {fileID: 1693717746}
-  delay: 10
-  speed: 30
-  movimiento: 0.18
+  MainLight: {fileID: 1693717746}
 --- !u!212 &734201315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2144668101}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d41046d52d7b024dbe567e0124d3575, type: 3}
   m_Name: 
@@ -915,11 +915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bef1a83f92d504584f5873b7f65599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsPrefabs:
-  - {fileID: 1476185260027622, guid: c53599d879a99ca44a177a4f56750be7, type: 2}
+  obsPrefabs: []
   rareObsPrefabs:
-  - {fileID: 1369179675540282, guid: 63c72007f89f09c49ae3e0913e3481a9, type: 2}
-  - {fileID: 1797227454880108, guid: 9ddcaf197318d184aaa83085e9901f2e, type: 2}
-  - {fileID: 1530000390626464, guid: c739539b5e18c42438c786b41bb8f72c, type: 2}
+  - {fileID: 1811233154554208, guid: 6a7772bb8eb7dc04fbf8598a17279c9d, type: 2}
+  - {fileID: 1111371122149290, guid: 142d13ccfc54e1349ac8646f61ec20e7, type: 2}
+  - {fileID: 1162705345892196, guid: db57369bf20920148923d6fefe56ea1a, type: 2}
+  SpawnYOffset: 100
   SpawnDelay: 2
   SpanwAtZ: 5

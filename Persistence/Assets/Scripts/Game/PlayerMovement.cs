@@ -11,21 +11,23 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject ScoreUp;
 
 	public float Speed = 3;
-	public float SquareSpeed = 10;
+	public float RegresionSpeed = 0.27f;
+
+	public float SquareSpeed = 12f;
+	public int Delay = 25;
+	public float Movimiento = 0.18f;
+
 	public PlayerMode Mode = PlayerMode.DEFAULT;
 
 	public AudioClip[] Songs;
 	public AudioClip Transition;
 	public AudioClip DeathSound;
 
-	public Light mainLight;
+	public Light MainLight;
 
 	private float prevX = 0f, prevY = 0f, axisX = 0, axisY = 0;
 	private bool isMoving = false;
 	private int time = 0;
-	public int delay = 25;
-	public float speed = 12f, movimiento = 0.18f;
-
 
 	void Start() {
 		ChangePlayerMode(Mode);
@@ -79,16 +81,25 @@ public class PlayerMovement : MonoBehaviour {
 
 		//Light Mode
 		if (Mode == PlayerMode.DEFAULT) {
-			float axisX = Input.GetAxis("Horizontal");
-			force = new Vector3(axisX, 0, 0);
+			if (!Input.anyKey) {
+				if (gameObject.transform.position.x > 0.1 || gameObject.transform.position.x < -0.1) {
+					if (gameObject.transform.position.x > 0) {
+						force = new Vector3(-RegresionSpeed, 0, 0);
+					} else {
+						force = new Vector3(RegresionSpeed, 0, 0);
+					}
+				}
+			} else {
+				float axisX = Input.GetAxis("Horizontal");
+				force = new Vector3(axisX, 0, 0);
+			}
 
 			Vector3 newTransform = transform.position - force * (-Speed) * Time.deltaTime;
 			transform.position = newTransform;
 
-
 		} else if (Mode == PlayerMode.SQUARE) {
 
-			if (time >= delay && isMoving) {
+			if (time >= Delay && isMoving) {
 				isMoving = false;
 				prevX = 0f;
 				prevY = 0f;
@@ -98,7 +109,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.A) && !isMoving) {
 				isMoving = true;
-				axisX = -movimiento;
+				axisX = -Movimiento;
 				axisY = 0f;
 				time = 0;
 				prevX = axisX;
@@ -107,7 +118,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.D) && !isMoving) {
 				isMoving = true;
-				axisX = movimiento;
+				axisX = Movimiento;
 				axisY = 0f;
 				time = 0;
 				prevX = axisX;
@@ -117,7 +128,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.S) && !isMoving) {
 				isMoving = true;
 				axisX = 0f;
-				axisY = -movimiento;
+				axisY = -Movimiento;
 				prevX = axisX;
 				prevY = axisY;
 				time = 0;
@@ -126,7 +137,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.W) && !isMoving) {
 				isMoving = true;
 				axisX = 0f;
-				axisY = movimiento;
+				axisY = Movimiento;
 				time = 0;
 				prevX = axisX;
 				prevY = axisY;
@@ -136,7 +147,7 @@ public class PlayerMovement : MonoBehaviour {
 			axisY = prevY;
 
 			force = new Vector3(axisX, axisY, 0);
-			Vector3 newTransform = transform.position + force * speed * Time.deltaTime;
+			Vector3 newTransform = transform.position + force * SquareSpeed * Time.deltaTime;
 			transform.position = newTransform;
 
 			time++;
@@ -172,9 +183,13 @@ public class PlayerMovement : MonoBehaviour {
 		Mode = mode;
 		if (mode == PlayerMode.DEFAULT) {
 			gameObject.GetComponent<TrailRenderer>().enabled = false;
-			gameObject.tag = "Light";
+
+			gameObject.transform.localScale = new Vector3(0.3f, 0.3f);
 			PlayerAnim.SetInteger("playerMode", 0);
-			mainLight.color = new Color(255, 255, 0);
+			gameObject.transform.localScale = new Vector3(0.5f, 0.5f);
+
+			gameObject.tag = "Light";
+			MainLight.color = new Color(255, 255, 0);
 			StartCoroutine(PlayUntilEnd(audio, Transition));
 			audio.clip = Songs[0];
 			audio.loop = true;
@@ -184,9 +199,12 @@ public class PlayerMovement : MonoBehaviour {
 			gameObject.GetComponent<TrailRenderer>().startColor = new Color(0, 95, 144);
 			gameObject.GetComponent<TrailRenderer>().endColor = new Color(0, 95, 144);
 
-			gameObject.tag = "Sound";
+			gameObject.transform.localScale = new Vector3(0.3f, 0.3f);
 			PlayerAnim.SetInteger("playerMode", 2);
-			mainLight.color = new Color(0, 95, 144);
+			gameObject.transform.localScale = new Vector3(0.6f, 0.6f);
+
+			gameObject.tag = "Sound";
+			MainLight.color = new Color(0, 95, 144);
 			StartCoroutine(PlayUntilEnd(audio, Transition));
 			audio.clip = Songs[2];
 			audio.loop = true;
@@ -196,9 +214,12 @@ public class PlayerMovement : MonoBehaviour {
 			gameObject.GetComponent<TrailRenderer>().startColor = new Color(0, 171, 0);
 			gameObject.GetComponent<TrailRenderer>().endColor = new Color(0, 171, 0);
 
-			gameObject.tag = "Elec";
+			gameObject.transform.localScale = new Vector3(0.3f, 0.3f);
 			PlayerAnim.SetInteger("playerMode", 1);
-			mainLight.color = new Color(0, 171, 0);
+			gameObject.transform.localScale = new Vector3(0.6f, 0.6f);
+			
+			gameObject.tag = "Elec";
+			MainLight.color = new Color(0, 171, 0);
 			StartCoroutine(PlayUntilEnd(audio, Transition));
 			audio.clip = Songs[1];
 			audio.loop = true;
