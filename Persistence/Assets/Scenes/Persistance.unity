@@ -213,8 +213,8 @@ GameObject:
   - component: {fileID: 734201318}
   - component: {fileID: 734201319}
   m_Layer: 0
-  m_Name: Player2D
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,19 +326,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreUp: {fileID: 1277354791292230, guid: a1977bbfa7ae7004889e0003fbc314c5, type: 2}
+  ScoreDown: {fileID: 1008015857080376, guid: 4c59106521467d14e90bd42e6f17233e, type: 2}
+  Mode: 2
+  MainLight: {fileID: 1693717746}
   Speed: 6.13
   RegresionSpeed: 0.27
   SquareSpeed: 12
   Delay: 13
-  Movimiento: 0.18
-  Mode: 2
+  Movement: 0.18
   Songs:
   - {fileID: 8300000, guid: f69127bf55c78064b94b81d3a086b7b8, type: 3}
   - {fileID: 8300000, guid: 136f761e882c7d545a5e48ae0912d147, type: 3}
   - {fileID: 8300000, guid: 7f930cab15dc9a94c9a29955cb107397, type: 3}
   Transition: {fileID: 8300000, guid: df2d23d624798384d883ff2311debe63, type: 3}
   DeathSound: {fileID: 8300000, guid: 00e3504c5900df343be13d5dd6a84f2d, type: 3}
-  MainLight: {fileID: 1693717746}
 --- !u!212 &734201315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -915,7 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bef1a83f92d504584f5873b7f65599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsPrefabs: []
+  obsPrefabs:
+  - {fileID: 1354586888267258, guid: 3c83ad288a3c24e49b6d3c3b64a1b432, type: 2}
   rareObsPrefabs:
   - {fileID: 1811233154554208, guid: 6a7772bb8eb7dc04fbf8598a17279c9d, type: 2}
   - {fileID: 1111371122149290, guid: 142d13ccfc54e1349ac8646f61ec20e7, type: 2}

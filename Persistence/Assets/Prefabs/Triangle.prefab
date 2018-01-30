@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212022382589663334}
   - component: {fileID: 114291562894514744}
   - component: {fileID: 50165060463504064}
-  - component: {fileID: 60644538172939850}
+  - component: {fileID: 61774337126360142}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Sound
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811233154554208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: -1.47, z: 5}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!60 &60644538172939850
-PolygonCollider2D:
+--- !u!61 &61774337126360142
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,7 +72,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -85,13 +85,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.14547549, y: 0.4147606}
-      - {x: -0.088224135, y: 0.57103515}
-      - {x: -0.6358025, y: -0.35231313}
-      - {x: -0.40149233, y: -0.51208794}
-      - {x: 0.6724191, y: -0.51754177}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.8}
+  m_EdgeRadius: 0
 --- !u!114 &114291562894514744
 MonoBehaviour:
   m_ObjectHideFlags: 1

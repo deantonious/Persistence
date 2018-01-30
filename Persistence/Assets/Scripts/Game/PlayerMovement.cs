@@ -8,22 +8,23 @@ public class PlayerMovement : MonoBehaviour {
 
 	public enum PlayerMode { TRIANGLE, SQUARE, DEFAULT };
 
-	public GameObject ScoreUp;
+	public GameObject ScoreUp, ScoreDown;
+	public PlayerMode Mode = PlayerMode.DEFAULT;
+	public Light MainLight;
 
+	//Light Movement
 	public float Speed = 3;
 	public float RegresionSpeed = 0.27f;
 
+	//Elec Movement
 	public float SquareSpeed = 12f;
 	public int Delay = 25;
-	public float Movimiento = 0.18f;
+	public float Movement = 0.18f;
 
-	public PlayerMode Mode = PlayerMode.DEFAULT;
-
+	//Game Audio
 	public AudioClip[] Songs;
 	public AudioClip Transition;
 	public AudioClip DeathSound;
-
-	public Light MainLight;
 
 	private float prevX = 0f, prevY = 0f, axisX = 0, axisY = 0;
 	private bool isMoving = false;
@@ -109,7 +110,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.A) && !isMoving) {
 				isMoving = true;
-				axisX = -Movimiento;
+				axisX = -Movement;
 				axisY = 0f;
 				time = 0;
 				prevX = axisX;
@@ -118,7 +119,7 @@ public class PlayerMovement : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.D) && !isMoving) {
 				isMoving = true;
-				axisX = Movimiento;
+				axisX = Movement;
 				axisY = 0f;
 				time = 0;
 				prevX = axisX;
@@ -128,7 +129,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.S) && !isMoving) {
 				isMoving = true;
 				axisX = 0f;
-				axisY = -Movimiento;
+				axisY = -Movement;
 				prevX = axisX;
 				prevY = axisY;
 				time = 0;
@@ -137,7 +138,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (Input.GetKeyDown(KeyCode.W) && !isMoving) {
 				isMoving = true;
 				axisX = 0f;
-				axisY = Movimiento;
+				axisY = Movement;
 				time = 0;
 				prevX = axisX;
 				prevY = axisY;
@@ -229,15 +230,18 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) {
-		if (gameObject.tag != collision.tag) {
-			Destroy(gameObject);
-			Debug.Log("OnTriggerEnter " + collision);
-			EndGame();
-		} else {
-			Destroy(collision.gameObject);
+		Destroy(collision.gameObject);
+		if (gameObject.tag != collision.tag && collision.tag != "Obstacle") {
+			Information.Score -= 5;
+			GameObject ob = Instantiate(ScoreDown, gameObject.transform.position, Quaternion.identity) as GameObject;
+			Destroy(ob, 0.6f);
+		} else if(collision.tag != "Obstacle") {
 			Information.Score += 5;
 			GameObject ob = Instantiate(ScoreUp, gameObject.transform.position, Quaternion.identity) as GameObject;
 			Destroy(ob, 0.6f);
+		} else {
+			Destroy(gameObject, 0.6f);
+			EndGame();
 		}
 	}
 
